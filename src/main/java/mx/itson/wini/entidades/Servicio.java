@@ -5,6 +5,7 @@
 package mx.itson.wini.entidades;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -93,6 +94,84 @@ public class Servicio {
     private Responsable responsable;
     private String descripcionProblema;
     private List<Actividad> actividades;
+    
+    public static Servicio getById(int id){
+            Servicio s = new Servicio ();
+        try {
+            Connection conexion = Conexion.obtener();
+            
+            String query = "SELECT id, fecha_realizacion, descripcion_problema FROM servicio WHERE id = ?";
+            PreparedStatement statement = conexion.prepareStatement(query);
+            statement.setInt(1, id);
+            
+            ResultSet rs = rs = statement.executeQuery();
+            while(rs.next()) {
+ 
+                s.setId(rs.getInt(1));
+                s.setFechaRealizacion(rs.getDate(2));
+                s.setDescripcionProblema(rs.getString(3));
+
+            }
+        } catch (Exception ex) {
+            System.err.println("Ocurrió un error " + ex.getMessage());
+        }
+        return s;
+    }
+    
+    public static boolean save(Date fecha, int idResponsable, String descripcionProblema) {
+        boolean resultado = false;
+        try{
+                Connection conexion = Conexion.obtener();
+                String consulta = "INSERT INTO servicio (fecha_realizacion, id_responsable, descripcion_problema) VALUES (?, ?, ?)";
+                PreparedStatement statement = conexion.prepareStatement(consulta);
+                statement.setDate(1, new java.sql.Date(fecha.getTime()));
+                statement.setInt(2, idResponsable);
+                statement.setString(3, descripcionProblema);
+                statement.execute();
+                resultado = statement.getUpdateCount() == 1;
+                conexion.close();
+        }catch(Exception ex) {
+            System.err.println("Ocurrió un error: " + ex.getMessage());
+        }return resultado;
+        
+        
+    }
+    
+    public static boolean edit(Date fecha, int idResponsable, int idServicio, String descripcionProblema) {
+        boolean resultado = false;
+        try{
+                Connection conexion = Conexion.obtener();
+                String consulta = "UPDATE servicio SET fecha_realizacion = ?, descripcion_problema = ?, id_responsable = ? WHERE id = ?";
+                PreparedStatement statement = conexion.prepareStatement(consulta);
+                statement.setDate(1, new java.sql.Date(fecha.getTime()));
+                statement.setString(2, descripcionProblema);
+                statement.setInt(3, idResponsable);
+                statement.setInt(4, idServicio);
+                
+                statement.execute();
+                resultado = statement.getUpdateCount() == 1;
+                conexion.close();
+        }catch(Exception ex) {
+            System.err.println("Ocurrió un error: " + ex.getMessage());
+        }return resultado;
+    } 
+    
+    public static boolean delete(int idServicio) {
+        boolean resultado = false;
+        try{
+                Connection conexion = Conexion.obtener();
+                String consulta = "DELETE FROM Servicio WHERE id = ?";
+                PreparedStatement statement = conexion.prepareStatement(consulta);
+                
+                statement.setInt(1, idServicio);
+                
+                statement.execute();
+                resultado = statement.getUpdateCount() == 1;
+                conexion.close();
+        }catch(Exception ex) {
+            System.err.println("Ocurrió un error: " + ex.getMessage());
+        }return resultado;
+    } 
     
     public static List<Servicio> getAll (){
         List<Servicio> servicios = new ArrayList<>();
