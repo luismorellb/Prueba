@@ -8,6 +8,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.wini.entidades.Responsable;
@@ -19,7 +28,42 @@ import mx.itson.wini.entidades.Servicio;
  */
 public class ServicioListado extends javax.swing.JFrame {
 
-    
+    public static void sendEmail(String recipient, String subject, String body) {
+        
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+
+        final String username = "perdo.isquierdo3005@gmail.com";  
+        final String password = "Itsonkey2005";    
+
+        
+        Session session = Session.getInstance(props, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+           
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+            message.setSubject(subject);
+            message.setText(body);
+
+            
+            Transport.send(message);
+            System.out.println("Email sent successfully!");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
     
     /**
      * Creates new form ServicioListado
@@ -155,7 +199,7 @@ public class ServicioListado extends javax.swing.JFrame {
         
         loadTable();
         
-        
+        sendEmail("pedro.izquierdo3005@gmail.com", "Test Subject", "This is a test email body.");
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 

@@ -45,5 +45,17 @@ public class ServicioListadoTest {
         String[] args = null;
         ServicioListado.main(args);
     }
+
+    /**
+     * Test of sendEmail method, of class ServicioListado.
+     */
+    @Test
+    public void testSendEmail() {
+        System.out.println("sendEmail");
+        String recipient = "";
+        String subject = "";
+        String body = "";
+        ServicioListado.sendEmail(recipient, subject, body);
+    }
     
 }
