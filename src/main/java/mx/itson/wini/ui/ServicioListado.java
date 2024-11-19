@@ -19,6 +19,8 @@ import mx.itson.wini.entidades.Servicio;
  */
 public class ServicioListado extends javax.swing.JFrame {
 
+    
+    
     /**
      * Creates new form ServicioListado
      */
@@ -152,6 +154,8 @@ public class ServicioListado extends javax.swing.JFrame {
         form.setVisible(true);
         
         loadTable();
+        
+        
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 

@@ -29,24 +29,26 @@ public class ServicioForm extends javax.swing.JDialog {
     public ServicioForm(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
         initComponents();
-       
+        
+       Thread thread = new Thread(() -> {
+            cargarResponsables();
+        });
+        thread.start();
         this.id = id;
         if (this.id != 0) {
         Servicio servicio = Servicio.getById(this.id);
         txtFecha.setText(new SimpleDateFormat("yyyy-MM-dd").format(servicio.getFechaRealizacion()));
         txtProblema.setText(servicio.getDescripcionProblema());
         
-        Thread thread = new Thread(() -> {
-            cargarResponsables();
-        });
-        thread.start();
+        
     }
     }
     
     public void cargarResponsables(){
         List<Responsable> responsables = Responsable.getAll();
         for (Responsable r : responsables) {
-            cmbResponsable.addItem(r);
+            cmbResponsables.addItem(r);
+            System.out.println(r);
         }
     }
 
@@ -63,7 +65,7 @@ public class ServicioForm extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbResponsable = new javax.swing.JComboBox<>();
+        cmbResponsables = new javax.swing.JComboBox<>();
         btnAceptar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtProblema = new javax.swing.JTextField();
@@ -106,7 +108,7 @@ public class ServicioForm extends javax.swing.JDialog {
                         .addComponent(jLabel1)
                         .addGap(133, 133, 133)
                         .addComponent(btnAceptar))
-                    .addComponent(cmbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbResponsables, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtProblema))
                 .addContainerGap(383, Short.MAX_VALUE))
@@ -125,7 +127,7 @@ public class ServicioForm extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbResponsables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,7 +148,7 @@ public class ServicioForm extends javax.swing.JDialog {
             String fechaTexto = txtFecha.getText();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date fecha = dateFormat.parse(fechaTexto);
-            Responsable seleccionResponsable = (Responsable) cmbResponsable.getSelectedItem();
+            Responsable seleccionResponsable = (Responsable) cmbResponsables.getSelectedItem();
             int idResponsable = seleccionResponsable.getId();
             
             String descripcionProblema = txtProblema.getText();
@@ -209,7 +211,7 @@ public class ServicioForm extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JComboBox<Responsable> cmbResponsable;
+    private javax.swing.JComboBox<Responsable> cmbResponsables;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
