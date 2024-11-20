@@ -38,7 +38,7 @@ public class ConexionTest {
     }
 
     /**
-     * Test of obtener method, of class Conexion.
+     * Test de el metodo Obtener de la clase Actividad
      */
     @Test
     public void testObtener() {

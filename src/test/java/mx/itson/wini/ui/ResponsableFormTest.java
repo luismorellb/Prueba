@@ -37,7 +37,7 @@ public class ResponsableFormTest {
     }
 
     /**
-     * Test of main method, of class ResponsableForm.
+     * Test de el metodo Main de la clase Actividad
      */
     @Test
     public void testMain() {

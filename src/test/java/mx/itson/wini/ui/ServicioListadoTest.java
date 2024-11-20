@@ -37,7 +37,7 @@ public class ServicioListadoTest {
     }
 
     /**
-     * Test of main method, of class ServicioListado.
+     * Test del metodo Main de la clase ServicioListado.
      */
     @Test
     public void testMain() {
@@ -47,7 +47,7 @@ public class ServicioListadoTest {
     }
 
     /**
-     * Test of sendEmail method, of class ServicioListado.
+     * Test del metodo sendEmail de la clase ServicioListado.
      */
     @Test
     public void testSendEmail() {

@@ -8,7 +8,7 @@ import mx.itson.wini.entidades.Responsable;
 import mx.itson.wini.entidades.Servicio;
 
 /**
- *
+ *En esta clase se obtienen toda la conexion y todos los datos de servicio
  * @author pedrizquierdo
  */
 public class Main {

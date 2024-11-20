@@ -16,15 +16,22 @@ import mx.itson.wini.entidades.Responsable;
 import mx.itson.wini.entidades.Servicio;
 
 /**
- *
+ *En esta clase se puede realizar cambios en los registros de servicios al elegir los responsables
+ * y asi modificar su fecha de realizacion y su descripcion del problema
  * @author pedrizquierdo
  */
 public class ServicioForm extends javax.swing.JDialog {
     
     int id = 0;
 
-    /**
-     * Creates new form ServicioForm
+       /**
+     *  Constructor de la clase ServicioForm.
+    * @param parent La ventana principal o padre que contiene este formulario. 
+    * Es de tipo java.awt.Frame.
+    * @param modal Indica si este formulario debe ser modal, es decir, si bloqueará 
+    * la interacción con otras ventanas mientras esté abierto.
+    * @param id es el identificador unico del responsable
+    * 
      */
     public ServicioForm(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
@@ -44,6 +51,10 @@ public class ServicioForm extends javax.swing.JDialog {
     }
     }
     
+    /**
+     * @param cargarResponsables es un dato tipo lista responsable 
+     * @return toda la lista de responsables
+     */
     public void cargarResponsables(){
         List<Responsable> responsables = Responsable.getAll();
         for (Responsable r : responsables) {
@@ -144,6 +155,15 @@ public class ServicioForm extends javax.swing.JDialog {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
 
+        /**
+         * En esta seccion se introduce el responsable junto con su fecha de realizacion 
+         * para poder ingresar su descripcion del problema
+         * @param fecha es un dato tipo date el cual es la fecha de realizacion del servicio
+         * @param descripcionProblema es un dato tipo String el cual es la descripcion del problema del servicio realizado
+         * @param idResponsable es un dato tipo int el cual es el identificador unico de cada responsable 
+         * @return la fecha introducida convertirla a un tipo date obetener el responsable seleccionado en el combo box
+         * y obtener la descripcion del problema
+         */
         try {
             String fechaTexto = txtFecha.getText();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

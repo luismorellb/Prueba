@@ -15,7 +15,8 @@ import mx.itson.wini.entidades.Responsable;
 import mx.itson.wini.entidades.Servicio;
 
 /**
- *
+ *En esta clase se muestra toda la lista de nuestra base de datos de actividades 
+ * y se permite realizar con botones la eliminacion, edicion o creacion de nuevas actividades y todo su formulario
  * @author pedrizquierdo
  */
 public class ActividadListado extends javax.swing.JFrame {
@@ -23,8 +24,14 @@ public class ActividadListado extends javax.swing.JFrame {
     private int idServicio;
     
     /**
-     * Creates new form ActividadListado
-     */
+    * Constructor de la clase ActividadListado.
+    *
+    * Este formulario muestra una lista de actividades relacionadas con un servicio específico. 
+    * El constructor inicializa los componentes del formulario y carga los datos de la tabla 
+    * de actividades correspondientes al identificador del servicio proporcionado.
+    * @param idServicio Identificador único del servicio del cual se listarán las actividades.
+    */
+
     public ActividadListado(int IdServicio) {
         
         this.idServicio = IdServicio;
@@ -131,7 +138,9 @@ public class ActividadListado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        /**
+         * Es un metodo el cual inicializa la tabla y que pueda ejecutarse de manera correcta
+         */
         loadTable(idServicio);
         tblActividades.removeColumn(tblActividades.getColumnModel().getColumn(0));
         
@@ -139,7 +148,11 @@ public class ActividadListado extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-
+            /**
+             * Esta seccion crea una nueva instancia para agregar una nueva actividad
+             * el idActividad se inica en 0 para indicar que se esta creando una nueva actividad
+             * y al final se reinicia la tabla con el metodo loadTable
+             */
         int idActividad = 0;
         ActividadForm form = new ActividadForm(this, true, idActividad, idServicio);
         form.setVisible(true);
@@ -150,6 +163,11 @@ public class ActividadListado extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
+        /**
+         * Esta seccion obtiene un id de actividad seleccionada en la tabla abre el formulario de esa actividad
+         * y permite editar toda la informacion dentro de ella
+         * al final se reinicia la tabla con el metodo loadTable
+         */
         int renglon = tblActividades.getSelectedRow();
         int idActividad = Integer.parseInt(tblActividades.getModel().getValueAt(renglon, 0).toString());
         
@@ -162,6 +180,13 @@ public class ActividadListado extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
+        /**
+         * Esta seccion obtiene un id de actividd seleccionada y permite eliminar ese id y todo el renglon
+         * de esa actividad
+         * Al eliminarla pregunta si desea eliminarla y si es asi lanza un texto de que se logro eliminar
+         * si no lanza un texto donde marca un error
+         * y al final se recarga la tabla con el metodo loadTable
+         */
         int renglon = tblActividades.getSelectedRow();
         int idResponsable = Integer.parseInt(tblActividades.getModel().getValueAt(renglon, 0).toString());
         
@@ -176,6 +201,12 @@ public class ActividadListado extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+        /**
+         * Esta seccion sirve para poder recargar la tabla al cerrar una accion
+         * @param Actvidad Dato de tipo Actividad el cual es la lista de todas las actividades realizadas en nuestra
+         * base de datos en la cual contiene toda su informacion
+         * @return el recargado de la tabla ya con las acciones realizadas
+         */
     private void loadTable(int idServicio){
         List<Actividad> actividades = Actividad.getAll();
         DefaultTableModel modeloTabla = (DefaultTableModel)tblActividades.getModel();

@@ -9,7 +9,7 @@ import mx.itson.wini.entidades.Actividad;
 import mx.itson.wini.entidades.Responsable;
 
 /**
- *
+ * En esta clase se hace tanto como la creacion y la edicion de las actividades realizadas
  * @author pedrizquierdo
  */
 public class ActividadForm extends javax.swing.JDialog {
@@ -18,8 +18,17 @@ public class ActividadForm extends javax.swing.JDialog {
     int id;
     private int idServicio;
     /**
-     * Creates new form ActividadForm
-     */
+    * Constructor de la clase ActividadForm.
+    * @param parent La ventana principal o padre que contiene este formulario. 
+    * Es de tipo java.awt.Frame.
+    * @param modal Indica si este formulario debe ser modal, es decir, si bloqueará 
+    * la interacción con otras ventanas mientras esté abierto.
+    * @param id Identificador único (tipo int) de la actividad que se va a gestionar. 
+    * Si es 0, se interpreta como la creación de una nueva actividad.
+    * @param idServicio Identificador del servicio (tipo int) al cual pertenece la actividad.
+    * Al instanciar el formulario con un ID distinto de 0, se cargan los datos de la actividad 
+    * especificada en los campos correspondientes (orden y descripción).
+    */
     public ActividadForm(java.awt.Frame parent, boolean modal,int id, int IdServicio) {
         super(parent, modal);
         initComponents();
@@ -108,6 +117,15 @@ public class ActividadForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+            
+        /**
+ * Captura los datos ingresados en los campos del formulario y los guarda en la base de datos.
+ * Si el atributo "id" es igual a 0, se toma como la creación de un nuevo registro, 
+ * y los datos se guardan llamando al método estático Actividad #save(int, String, int).
+ * si no se edita un registro existente utilizando el método Actividad #edit(int, int, String, int).
+ * Si la operación se realiza con éxito, se muestra un cuadro de diálogo informativo 
+ * y se cierra el formulario. Si falla, se muestra un mensaje de error.
+ */
 
         int orden = Integer.parseInt(txtOrden.getText());
         String descripcion = txtDescripcion.getText();

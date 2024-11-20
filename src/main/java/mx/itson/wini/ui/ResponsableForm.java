@@ -8,14 +8,20 @@ import javax.swing.JOptionPane;
 import mx.itson.wini.entidades.Responsable;
 
 /**
- *
+ * En esta clase se hace tanto la creacion como la edicion de un responsable y su puesto
  * @author pedrizquierdo
  */
 public class ResponsableForm extends javax.swing.JDialog {
 
     int id;
     /**
-     * Creates new form ResponsableForm
+     *  Constructor de la clase ResponsableForm.
+    * @param parent La ventana principal o padre que contiene este formulario. 
+    * Es de tipo java.awt.Frame.
+    * @param modal Indica si este formulario debe ser modal, es decir, si bloqueará 
+    * la interacción con otras ventanas mientras esté abierto.
+    * @param id es el identificador unico del responsable
+    * 
      */
     public ResponsableForm(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
@@ -129,6 +135,12 @@ public class ResponsableForm extends javax.swing.JDialog {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
 
+        /**
+         * En esta seccion se introduce el nomnre y el puesto que se haya ingresado
+         * Se ingresa el == 0 ? para preguntar si se quiere crear uno nuevo
+         * o editar uno ya existente
+         * @return el texto que se guardo correctamente y si ocurrio un error se regresara el texto de error
+         */
         String nombre = txtNombre.getText();
         String puesto = txtPuesto.getText();
         

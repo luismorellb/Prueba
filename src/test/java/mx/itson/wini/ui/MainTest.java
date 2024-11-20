@@ -37,7 +37,7 @@ public class MainTest {
     }
 
     /**
-     * Test of main method, of class Main.
+     * Test de el metodo Main de la clase Actividad
      */
     @Test
     public void testMain() {

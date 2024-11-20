@@ -38,7 +38,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of getId method, of class Responsable.
+     * Test de el metodo Obtener Id de la clase Responsable
      */
     @Test
     public void testGetId() {
@@ -50,7 +50,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of setId method, of class Responsable.
+     *  Test de el otorgar Id de la clase Responsable
      */
     @Test
     public void testSetId() {
@@ -61,7 +61,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of getNombre method, of class Responsable.
+     * Test de el metodo Obtener Nombre de la clase Responsable
      */
     @Test
     public void testGetNombre() {
@@ -73,7 +73,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of setNombre method, of class Responsable.
+     * Test de el metodo Otorgar Nombre de la clase Responsable
      */
     @Test
     public void testSetNombre() {
@@ -84,7 +84,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of getPuesto method, of class Responsable.
+     * Test de el metodo Obtener Puesto de la clase Responsable
      */
     @Test
     public void testGetPuesto() {
@@ -96,7 +96,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of setPuesto method, of class Responsable.
+     * Test de el metodo Otorgar Puesto de la clase Responsable
      */
     @Test
     public void testSetPuesto() {
@@ -107,7 +107,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of toString method, of class Responsable.
+     * Test de el metodo Sobreescrito de la clase Responsable
      */
     @Test
     public void testToString() {
@@ -119,7 +119,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of getAll method, of class Responsable.
+     * Test de el metodo Obtener Todos los datos de la clase Responsable
      */
     @Test
     public void testGetAll() {
@@ -130,7 +130,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of getById method, of class Responsable.
+     * Test de el metodo Obtener ById de la clase Responsable
      */
     @Test
     public void testGetById() {
@@ -142,7 +142,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of edit method, of class Responsable.
+     * Test de el metodo Editar de la clase Responsable
      */
     @Test
     public void testEdit() {
@@ -156,7 +156,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of delete method, of class Responsable.
+     * Test de el metodo Eliminar de la clase Responsable
      */
     @Test
     public void testDelete() {
@@ -168,7 +168,7 @@ public class ResponsableTest {
     }
 
     /**
-     * Test of save method, of class Responsable.
+     * Test de el metodo Guardar de la clase Responsable
      */
     @Test
     public void testSave() {

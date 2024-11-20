@@ -23,11 +23,20 @@ import mx.itson.wini.entidades.Responsable;
 import mx.itson.wini.entidades.Servicio;
 
 /**
- *
+ * *En esta clase se muestra toda la tabla de nuestra base de datos de servicio 
+ * y se puede tanto como eliminar, editar y agregar nuevos servicios y todo su formulario
  * @author pedrizquierdo
  */
 public class ServicioListado extends javax.swing.JFrame {
 
+    
+/**
+ * Esta función se encarga de enviar un correo electrónico a través de Gmail.
+ * 
+ * @param recipient Dirección de correo electrónico del destinatario.
+ * @param subject Asunto del correo.
+ * @param body Cuerpo del mensaje.
+ */
     public static void sendEmail(String recipient, String subject, String body) {
         
         Properties props = new Properties();
@@ -185,7 +194,9 @@ public class ServicioListado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        /**
+         * Es un metodo el cual inicializa la tabla y que pueda ejecutarse de manera correcta
+         */
         loadTable();
         tblServicios.removeColumn(tblServicios.getColumnModel().getColumn(0));
 
@@ -194,6 +205,11 @@ public class ServicioListado extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
+        /**
+        * Esta seccion crea una nueva instancia para agregar un nuevo servicio
+        * el ServicioForm se inica en 0 para indicar que se esta creando un nuevo servicio
+        * y al final se reinicia la tabla con el metodo loadTable
+        */
         ServicioForm form = new ServicioForm(this, true, 0);
         form.setVisible(true);
         
@@ -205,6 +221,11 @@ public class ServicioListado extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
+        /**
+         * Esta seccion obtiene un id de Servicio seleccionado en la tabla abre el formulario de ese Servicio
+         * y permite editar toda la informacion dentro de ella
+         * al final se reinicia la tabla con el metodo loadTable
+         */
         int renglon = tblServicios.getSelectedRow();
         int idServicio = Integer.parseInt(tblServicios.getModel().getValueAt(renglon, 0).toString());
         
@@ -217,6 +238,13 @@ public class ServicioListado extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
+        /**
+         * Esta seccion obtiene un id de Servicio seleccionado y permite eliminar ese id y todo el renglon
+         * de ese servicio
+         * Al eliminarla pregunta si desea eliminarla y si es asi lanza un texto de que se logro eliminar
+         * si no lanza un texto donde marca un error
+         * y al final se recarga la tabla con el metodo loadTable
+         */
         int renglon = tblServicios.getSelectedRow();
         int idServicio = Integer.parseInt(tblServicios.getModel().getValueAt(renglon, 0).toString());
         
@@ -235,6 +263,10 @@ public class ServicioListado extends javax.swing.JFrame {
 
     private void btnActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesActionPerformed
 
+        /**
+        * En esta sección se obtiene el servicio seleccionado en la tabla, se recupera su ID
+        * y se abre una ventana de detalles relacionadas con ese servicio.
+        */
         int renglon = tblServicios.getSelectedRow();
         int idServicio = Integer.parseInt(tblServicios.getModel().getValueAt(renglon, 0).toString());
         
@@ -245,6 +277,12 @@ public class ServicioListado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnActividadesActionPerformed
 
+    /**
+         * Esta seccion sirve para poder recargar la tabla al cerrar una accion
+         * @param Servicio dato de tipo Servicio el cual es la lista en nuestra base de datos donde tiene
+         * todos los servicios junto con su informacion
+         * @return el recargado de la tabla ya con las acciones realizadas
+         */
     private void loadTable(){
         List<Servicio> servicios = Servicio.getAll();
         DefaultTableModel modeloTabla = (DefaultTableModel)tblServicios.getModel();

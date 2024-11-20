@@ -39,7 +39,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getId method, of class Servicio.
+     * Test del metodo Obtener Id de la clase Servicio.
      */
     @Test
     public void testGetId() {
@@ -51,7 +51,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of setId method, of class Servicio.
+     * Test del metodo Otorgar Id de la clase Servicio.
      */
     @Test
     public void testSetId() {
@@ -62,7 +62,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getFechaRealizacion method, of class Servicio.
+     * Test del metodo Obtener FechaReaizacion de la clase Servicio.
      */
     @Test
     public void testGetFechaRealizacion() {
@@ -74,7 +74,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of setFechaRealizacion method, of class Servicio.
+     * Test del metodo Otorgar FechaRealizacion de la clase Servicio.
      */
     @Test
     public void testSetFechaRealizacion() {
@@ -85,7 +85,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getResponsable method, of class Servicio.
+     * Test del metodo Otorgar Responsable de la clase Servicio.
      */
     @Test
     public void testGetResponsable() {
@@ -97,7 +97,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of setResponsable method, of class Servicio.
+     * Test del metodo Otorgar Responsable de la clase Servicio.
      */
     @Test
     public void testSetResponsable() {
@@ -108,7 +108,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getDescripcionProblema method, of class Servicio.
+     * Test del metodo Obtener DescripcionProblema de la clase Servicio.
      */
     @Test
     public void testGetDescripcionProblema() {
@@ -120,7 +120,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of setDescripcionProblema method, of class Servicio.
+     * Test del metodo Otorgar DescripcionProblema de la clase Servicio.
      */
     @Test
     public void testSetDescripcionProblema() {
@@ -131,7 +131,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getActividades method, of class Servicio.
+     * Test del metodo Obtener Actividades de la clase Servicio.
      */
     @Test
     public void testGetActividades() {
@@ -143,7 +143,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of setActividades method, of class Servicio.
+     * Test del metodo Otorgar Actividades de la clase Servicio.
      */
     @Test
     public void testSetActividades() {
@@ -154,7 +154,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getById method, of class Servicio.
+     * Test del metodo Obtener ById de la clase Servicio.
      */
     @Test
     public void testGetById() {
@@ -166,7 +166,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of save method, of class Servicio.
+     * Test del metodo Guardar de la clase Servicio.
      */
     @Test
     public void testSave() {
@@ -180,7 +180,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of edit method, of class Servicio.
+     * Test del metodo Editar de la clase Servicio.
      */
     @Test
     public void testEdit() {
@@ -195,7 +195,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of delete method, of class Servicio.
+     * Test del metodo Eliminar de la clase Servicio.
      */
     @Test
     public void testDelete() {
@@ -207,7 +207,7 @@ public class ServicioTest {
     }
 
     /**
-     * Test of getAll method, of class Servicio.
+     * Test del metodo Obtener Todos los datos de la clase Servicio.
      */
     @Test
     public void testGetAll() {

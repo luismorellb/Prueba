@@ -14,77 +14,88 @@ import java.util.List;
 import mx.itson.wini.persistencia.Conexion;
 
 /**
- *
+ *En esta clase se realizan realizan todas las conexiones, obtenciones y otorgaciones de valores necesarios
+ * para que en la base de datos en "Servicio" se pueda mostrar en nuestras tablas
  * @author pedrizquierdo
  */
 public class Servicio {
 
     /**
-     * @return the id
+     * @return identificador unico de servicio realizado
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @param id the id to set
+     * @param id se le otorga en la base de datos el id del servicio especificado
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * @return the fechaRealizacion
+     * @return regresa un dato tipo date la cual es la fecha de realizacion
      */
     public Date getFechaRealizacion() {
         return fechaRealizacion;
     }
 
     /**
-     * @param fechaRealizacion the fechaRealizacion to set
+     * @param fechaRealizacion se coloca en la base de datos una fecha de realizacion especificada
      */
     public void setFechaRealizacion(Date fechaRealizacion) {
         this.fechaRealizacion = fechaRealizacion;
     }
-
+    
     /**
-     * @return the responsable
-     */
+    * Obtiene el objeto de tipo Responsable asociado a esta instancia.
+    * @return Un objeto de tipo Responsable que contiene información como el ID, 
+    * el nombre, y el puesto del responsable.
+    */
     public Responsable getResponsable() {
         return responsable;
     }
 
     /**
-     * @param responsable the responsable to set
-     */
+    * Asigna un objeto de tipo Responsable al atributo de esta clase.
+    * @param responsable Objeto de tipo Responsable que representa al responsable asociado.
+    * Puede incluir información como el ID, el nombre, y el puesto del responsable.
+    */
     public void setResponsable(Responsable responsable) {
         this.responsable = responsable;
     }
 
     /**
-     * @return the descripcionProblema
+     * En esta seccion se obtiene el string de la descripcion del problema del servicio especificado
+     * @return regresa un dato de tipo string el cual es la descripcion del problema del servicio especificado
      */
     public String getDescripcionProblema() {
         return descripcionProblema;
     }
 
     /**
-     * @param descripcionProblema the descripcionProblema to set
+     * @param descripcionProblema Dato de tipo string que representa la descripcion del problema, del servicio realizado
      */
     public void setDescripcionProblema(String descripcionProblema) {
         this.descripcionProblema = descripcionProblema;
     }
 
     /**
-     * @return the actividades
+     * En esta seccion se obtiene la lista de tipo actividad de cada servicio realizado
+     * @return regresa una lista de tipo Actividad la cual es el total de actividades realizadas en el servicio
+     * realizado
      */
     public List<Actividad> getActividades() {
         return actividades;
     }
 
     /**
-     * @param actividades the actividades to set
-     */
+    * Asigna una lista de actividades al atributo de esta clase.
+    * @param actividades Una lista de objetos de tipo Actividad que representan 
+    * las actividades asociadas. Cada actividad puede incluir información 
+    * como su ID, orden, descripción, y el servicio al que pertenece.
+    */
     public void setActividades(List<Actividad> actividades) {
         this.actividades = actividades;
     }
@@ -95,6 +106,15 @@ public class Servicio {
     private String descripcionProblema;
     private List<Actividad> actividades;
     
+    /**
+     * En esta seccion de codigo se utiliza para poder obtener el id del servicio en especifico
+     * la fecha de realizacion y la descripcion del problema del servicio
+     * @param id es un int el cual es el id del servicio
+     * @param fecha_realizacion es un dato tipo date el cual es la fecha que se realizo el servicio
+     * @param descripcion_problema es un dato tipo string el cual es la descripcion del problema del servicio realizado
+     * @return Un objeto de tipo Servicio que contiene los datos del registro correspondiente.
+     * Si no se encuentra el registro, se devuelve un objeto vacío con valores predeterminados.
+     */
     public static Servicio getById(int id){
             Servicio s = new Servicio ();
         try {
@@ -117,7 +137,13 @@ public class Servicio {
         }
         return s;
     }
-    
+      /**
+     * Guarda un registro de Servicio en la base de datos
+     * @param fecha dato de tipo date el cual es la fecha de realizacion del servicio
+     * @param idResponsable Dato de tipo int el cual es el identificador unico del responsable que realizo el servicio
+     * @param descripcionProblema Dato de tipo String el cual es la descripcion del problema del servicio realizado
+     * @return true si se guardo exitosamente ; de lo contrario, false.
+     */
     public static boolean save(Date fecha, int idResponsable, String descripcionProblema) {
         boolean resultado = false;
         try{
@@ -136,6 +162,14 @@ public class Servicio {
         
         
     }
+        /**
+     * Aqui esta seccion de codigo sirve para poder editar desde nuestro programa, la base de datos y poder 
+     * modificar toda la tabla de Servicio
+     * @param fecha dato de tipo date el cual es la fecha de realizacion del servicio
+     * @param idResponsable Dato de tipo int el cual es el identificador unico del responsable que realizo el servicio
+     * @param descripcionProblema Dato de tipo String el cual es la descripcion del problema del servicio realizado
+     * @return la edicion de los elementos seleccionados del servicio especificado
+     */
     
     public static boolean edit(Date fecha, int idResponsable, int idServicio, String descripcionProblema) {
         boolean resultado = false;
@@ -155,7 +189,11 @@ public class Servicio {
             System.err.println("Ocurrió un error: " + ex.getMessage());
         }return resultado;
     } 
-    
+     /**
+     * En esta seccion de codigo se elimina el id especifico seleccionado de nuestra base de datos
+     * @param idServicio es un int el cual es el identificador unico de nuestro servicio especificado
+     * @return La eliminacion del identificador unico de nuestro servicio especificado
+     */
     public static boolean delete(int idServicio) {
         boolean resultado = false;
         try{
@@ -173,6 +211,11 @@ public class Servicio {
         }return resultado;
     } 
     
+     /**
+     * Esta seccion de codigo se usa para poder seleccionar todo lo que este dentro de "Servicio"
+     * En la base de datos
+     * @return todos los datos seleccionados de la base de datos
+     */   
     public static List<Servicio> getAll (){
         List<Servicio> servicios = new ArrayList<>();
         try {

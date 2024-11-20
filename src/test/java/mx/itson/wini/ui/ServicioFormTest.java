@@ -37,7 +37,7 @@ public class ServicioFormTest {
     }
 
     /**
-     * Test of cargarResponsables method, of class ServicioForm.
+     * Test del metodo cargarResponsables de la clase ServicioForm.
      */
     @Test
     public void testCargarResponsables() {
@@ -47,7 +47,7 @@ public class ServicioFormTest {
     }
 
     /**
-     * Test of main method, of class ServicioForm.
+     * Test de el metodo Main de la clase Actividad
      */
     @Test
     public void testMain() {

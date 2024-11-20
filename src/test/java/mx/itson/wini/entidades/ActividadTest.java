@@ -38,7 +38,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getServicio method, of class Actividad.
+     * Test de el metodo obtener servicio de la clase Actividad
      */
     @Test
     public void testGetServicio() {
@@ -50,7 +50,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of setServicio method, of class Actividad.
+     * Test de el metodo Asignar servicio de la clase Actividad
      */
     @Test
     public void testSetServicio() {
@@ -61,7 +61,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getId method, of class Actividad.
+     * Test de el metodo obtener Id de la clase Actividad
      */
     @Test
     public void testGetId() {
@@ -73,7 +73,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of setId method, of class Actividad.
+     * Test de el metodo otorgar Id de la clase Actividad
      */
     @Test
     public void testSetId() {
@@ -84,7 +84,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getOrden method, of class Actividad.
+     * Test de el metodo obtener servicio de la clase Actividad
      */
     @Test
     public void testGetOrden() {
@@ -96,7 +96,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of setOrden method, of class Actividad.
+     * Test de el metodo otorgar Orden de la clase Actividad
      */
     @Test
     public void testSetOrden() {
@@ -107,7 +107,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getDescripcion method, of class Actividad.
+     * Test de el metodo obtener Descripcion de la clase Actividad
      */
     @Test
     public void testGetDescripcion() {
@@ -119,7 +119,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of setDescripcion method, of class Actividad.
+     * Test de el metodo otorgar Descripcion de la clase Actividad
      */
     @Test
     public void testSetDescripcion() {
@@ -130,7 +130,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getList method, of class Actividad.
+     * Test de el metodo obtener Lista de la clase Actividad
      */
     @Test
     public void testGetList() {
@@ -142,7 +142,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of delete method, of class Actividad.
+     * Test de el metodo Eliminar de la clase Actividad
      */
     @Test
     public void testDelete() {
@@ -154,7 +154,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of edit method, of class Actividad.
+     * Test de el metodo Editar de la clase Actividad
      */
     @Test
     public void testEdit() {
@@ -169,7 +169,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of save method, of class Actividad.
+     * Test de el metodo Guardar de la clase Actividad
      */
     @Test
     public void testSave() {
@@ -183,7 +183,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getById method, of class Actividad.
+     * Test de el metodo Obtener ById de la clase Actividad
      */
     @Test
     public void testGetById() {
@@ -195,7 +195,7 @@ public class ActividadTest {
     }
 
     /**
-     * Test of getAll method, of class Actividad.
+     * Test de el metodo Obtener Todos los datos de la clase Actividad
      */
     @Test
     public void testGetAll() {
