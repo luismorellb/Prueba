@@ -56,7 +56,7 @@ public class ServicioTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        int id = 0;
+        int id = 5;
         Servicio instance = new Servicio();
         instance.setId(id);
     }
@@ -125,7 +125,7 @@ public class ServicioTest {
     @Test
     public void testSetDescripcionProblema() {
         System.out.println("setDescripcionProblema");
-        String descripcionProblema = "";
+        String descripcionProblema = "Error en el software";
         Servicio instance = new Servicio();
         instance.setDescripcionProblema(descripcionProblema);
     }
@@ -159,7 +159,7 @@ public class ServicioTest {
     @Test
     public void testGetById() {
         System.out.println("getById");
-        int id = 0;
+        int id = 6;
         Servicio expResult = null;
         Servicio result = Servicio.getById(id);
         assertEquals(expResult, result);
@@ -171,10 +171,10 @@ public class ServicioTest {
     @Test
     public void testSave() {
         System.out.println("save");
-        Date fecha = null;
-        int idResponsable = 0;
-        String descripcionProblema = "";
-        boolean expResult = false;
+        Date fecha = new Date();
+        int idResponsable = 1;
+        String descripcionProblema = "Error en el software";
+        boolean expResult = true;
         boolean result = Servicio.save(fecha, idResponsable, descripcionProblema);
         assertEquals(expResult, result);
     }
@@ -185,10 +185,10 @@ public class ServicioTest {
     @Test
     public void testEdit() {
         System.out.println("edit");
-        Date fecha = null;
+        Date fecha = new Date();
         int idResponsable = 0;
         int idServicio = 0;
-        String descripcionProblema = "";
+        String descripcionProblema = "Nuevo problema en el software";
         boolean expResult = false;
         boolean result = Servicio.edit(fecha, idResponsable, idServicio, descripcionProblema);
         assertEquals(expResult, result);

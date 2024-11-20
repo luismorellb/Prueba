@@ -4,6 +4,7 @@
  */
 package mx.itson.wini.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -89,8 +90,10 @@ public class ActividadTest {
     @Test
     public void testGetOrden() {
         System.out.println("getOrden");
+        int orden = 2;
         Actividad instance = new Actividad();
-        int expResult = 0;
+        instance.setOrden(orden);
+        int expResult = orden;
         int result = instance.getOrden();
         assertEquals(expResult, result);
     }
@@ -101,11 +104,11 @@ public class ActividadTest {
     @Test
     public void testSetOrden() {
         System.out.println("setOrden");
-        int orden = 0;
+        int orden = 2;
         Actividad instance = new Actividad();
         instance.setOrden(orden);
     }
-
+            
     /**
      * Test de el metodo obtener Descripcion de la clase Actividad
      */
@@ -113,7 +116,9 @@ public class ActividadTest {
     public void testGetDescripcion() {
         System.out.println("getDescripcion");
         Actividad instance = new Actividad();
-        String expResult = null;
+        String descripcion = "Desconectar de la corriente eléctrica";
+        instance.setDescripcion(descripcion);
+        String expResult = descripcion;
         String result = instance.getDescripcion();
         assertEquals(expResult, result);
     }
@@ -124,9 +129,10 @@ public class ActividadTest {
     @Test
     public void testSetDescripcion() {
         System.out.println("setDescripcion");
-        String descripcion = "";
+        String descripcion = "Desconectar de la corriente eléctrica";
         Actividad instance = new Actividad();
         instance.setDescripcion(descripcion);
+        assertEquals(descripcion, instance.getDescripcion());
     }
 
     /**
@@ -135,8 +141,8 @@ public class ActividadTest {
     @Test
     public void testGetList() {
         System.out.println("getList");
-        int idServicio = 0;
-        List<Actividad> expResult = null;
+        int idServicio = 1;
+        List<Actividad> expResult = new ArrayList<>();
         List<Actividad> result = Actividad.getList(idServicio);
         assertEquals(expResult, result);
     }
@@ -159,11 +165,11 @@ public class ActividadTest {
     @Test
     public void testEdit() {
         System.out.println("edit");
-        int id = 0;
-        int orden = 0;
-        String descripcion = "";
-        int idServicio = 0;
-        boolean expResult = false;
+        int id = 8;
+        int orden = 2;
+        String descripcion = "Nueva actividad";
+        int idServicio = 2;
+        boolean expResult = true;
         boolean result = Actividad.edit(id, orden, descripcion, idServicio);
         assertEquals(expResult, result);
     }
@@ -174,10 +180,10 @@ public class ActividadTest {
     @Test
     public void testSave() {
         System.out.println("save");
-        int orden = 0;
-        String descripcion = "";
-        int idServicio = 0;
-        boolean expResult = false;
+        int orden = 2;
+        String descripcion = "Retirar los tornillos de la tapa";
+        int idServicio = 2;
+        boolean expResult = true;
         boolean result = Actividad.save(orden, descripcion, idServicio);
         assertEquals(expResult, result);
     }

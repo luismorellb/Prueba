@@ -55,7 +55,7 @@ public class ResponsableTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        int id = 0;
+        int id = 4;
         Responsable instance = new Responsable();
         instance.setId(id);
     }
@@ -78,7 +78,7 @@ public class ResponsableTest {
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
-        String nombre = "";
+        String nombre = "Alan Godoy";
         Responsable instance = new Responsable();
         instance.setNombre(nombre);
     }
@@ -101,7 +101,7 @@ public class ResponsableTest {
     @Test
     public void testSetPuesto() {
         System.out.println("setPuesto");
-        String puesto = null;
+        String puesto = "Gerente de intendencia";
         Responsable instance = new Responsable();
         instance.setPuesto(puesto);
     }
@@ -147,10 +147,10 @@ public class ResponsableTest {
     @Test
     public void testEdit() {
         System.out.println("edit");
-        int id = 0;
-        String nombre = "";
-        String puesto = "";
-        boolean expResult = false;
+        int id = 4;
+        String nombre = "Ramón Carillo";
+        String puesto = "Desarrollador Web";
+        boolean expResult = true;
         boolean result = Responsable.edit(id, nombre, puesto);
         assertEquals(expResult, result);
     }
@@ -161,8 +161,8 @@ public class ResponsableTest {
     @Test
     public void testDelete() {
         System.out.println("delete");
-        int id = 0;
-        boolean expResult = false;
+        int id = 13;
+        boolean expResult = true;
         boolean result = Responsable.delete(id);
         assertEquals(expResult, result);
     }
@@ -173,9 +173,9 @@ public class ResponsableTest {
     @Test
     public void testSave() {
         System.out.println("save");
-        String nombre = "";
-        String puesto = "";
-        boolean expResult = false;
+        String nombre = "Pedro Pascal";
+        String puesto = "Desarrollador Backend";
+        boolean expResult = true;
         boolean result = Responsable.save(nombre, puesto);
         assertEquals(expResult, result);
     }
